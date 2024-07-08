@@ -2,6 +2,9 @@
 
 A Flutter package that provides a customizable number pad keyboard widget for entering PIN codes or numeric input.
 
+![Number Pad Keyboard Preview](https://raw.githubusercontent.com/MahmoudAhmed121/number_pad_keyboard/master/Screenshot_1720446737.png)
+
+
 ## Features
 
 - **Customizable Design**: Easily customize the look and feel of the number pad keyboard.
@@ -122,5 +125,4 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 ```
-[![Short Video Example](https://img.youtube.com/vi/pENljw1hRhc/0.jpg)](https://www.youtube.com/shorts/pENljw1hRhc)
 

@@ -1,10 +1,11 @@
 name: number_pad_keyboard
 description: >
   A Flutter package that provides a customizable number pad keyboard for entering PIN codes or numeric input. 
-  It includes features such as custom styling for numbers and buttons, a backspace button, and an enter button with customizable text and styles.
+  It includes features such as custom styling for numbers and buttons.
 
 version: 0.0.1
-homepage:
+homepage: https://github.com/MahmoudAhmed121/number_pad_keyboard
+repository: https://github.com/MahmoudAhmed121/number_pad_keyboard
 
 environment:
   sdk: '>=3.3.4 <4.0.0'
@@ -20,3 +21,12 @@ dev_dependencies:
   flutter_lints: ^3.0.0
 
 flutter:
+
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:

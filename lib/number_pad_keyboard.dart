@@ -1,8 +1,13 @@
+/// A Flutter package that provides a customizable number pad keyboard widget for entering PIN codes or numeric input.
 library number_pad_keyboard;
 
 import 'package:flutter/material.dart';
 
+/// Widget for a number pad keyboard that allows entering numeric input.
 class NumberPadKeyboard extends StatelessWidget {
+  /// Creates a number pad keyboard widget.
+  ///
+  /// The [addDigit], [backspace], and [onEnter] parameters must not be null.
   const NumberPadKeyboard({
     super.key,
     required this.addDigit,
@@ -18,16 +23,37 @@ class NumberPadKeyboard extends StatelessWidget {
     required this.onEnter,
   });
 
+  /// Callback function to add a digit when a number button is pressed.
   final void Function(int) addDigit;
+
+  /// Callback function when the backspace button is pressed.
   final VoidCallback backspace;
+
+  /// Color of the delete (backspace) button icon.
   final Color? deleteColor;
+
+  /// Color of the enter button.
   final Color? enterButtonColor;
+
+  /// Text displayed on the enter button.
   final String enterButtonText;
+
+  /// Text style of the enter button text.
   final TextStyle? enterButtonTextStyle;
+
+  /// Custom widget for the delete (backspace) button icon.
   final Widget? deleteIcon;
+
+  /// Size of the delete (backspace) button icon.
   final double? deleteIconSize;
+
+  /// Text style for the numbers displayed on the keyboard.
   final TextStyle? numberStyle;
+
+  /// Background color of the keyboard.
   final Color? backgroundColor;
+
+  /// Callback function when the enter button is pressed.
   final void Function()? onEnter;
 
   @override
@@ -38,57 +64,53 @@ class NumberPadKeyboard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(height: 5),
-          _buildRow(
-            [
-              Expanded(
-                child: _buildNumberPad(
-                  1,
-                  () => addDigit(1),
-                  numberStyle: numberStyle,
-                ),
+          _buildRow([
+            Expanded(
+              child: _buildNumberPad(
+                1,
+                () => addDigit(1),
+                numberStyle: numberStyle,
               ),
-              Expanded(
-                child: _buildNumberPad(
-                  2,
-                  () => addDigit(2),
-                  numberStyle: numberStyle,
-                ),
+            ),
+            Expanded(
+              child: _buildNumberPad(
+                2,
+                () => addDigit(2),
+                numberStyle: numberStyle,
               ),
-              Expanded(
-                child: _buildNumberPad(
-                  3,
-                  () => addDigit(3),
-                  numberStyle: numberStyle,
-                ),
+            ),
+            Expanded(
+              child: _buildNumberPad(
+                3,
+                () => addDigit(3),
+                numberStyle: numberStyle,
               ),
-            ],
-          ),
+            ),
+          ]),
           const SizedBox(height: 5),
-          _buildRow(
-            [
-              Expanded(
-                child: _buildNumberPad(
-                  4,
-                  () => addDigit(4),
-                  numberStyle: numberStyle,
-                ),
+          _buildRow([
+            Expanded(
+              child: _buildNumberPad(
+                4,
+                () => addDigit(4),
+                numberStyle: numberStyle,
               ),
-              Expanded(
-                child: _buildNumberPad(
-                  5,
-                  () => addDigit(5),
-                  numberStyle: numberStyle,
-                ),
+            ),
+            Expanded(
+              child: _buildNumberPad(
+                5,
+                () => addDigit(5),
+                numberStyle: numberStyle,
               ),
-              Expanded(
-                child: _buildNumberPad(
-                  6,
-                  () => addDigit(6),
-                  numberStyle: numberStyle,
-                ),
+            ),
+            Expanded(
+              child: _buildNumberPad(
+                6,
+                () => addDigit(6),
+                numberStyle: numberStyle,
               ),
-            ],
-          ),
+            ),
+          ]),
           const SizedBox(height: 5),
           _buildRow([
             Expanded(
@@ -118,17 +140,11 @@ class NumberPadKeyboard extends StatelessWidget {
             Expanded(
               child: IconButton(
                 onPressed: backspace,
-                style: TextButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 50),
-                ),
                 icon: deleteIcon ??
                     Icon(
                       Icons.keyboard_arrow_left_rounded,
                       color: deleteColor,
-                      size: deleteIconSize,
+                      size: deleteIconSize ?? 24.0,
                     ),
               ),
             ),
@@ -185,7 +201,11 @@ class NumberPadKeyboard extends StatelessWidget {
   }
 }
 
+/// Widget for each individual number button in the number pad.
 class BuildNumberPad extends StatelessWidget {
+  /// Creates a number pad button with the specified number [n].
+  ///
+  /// The [n] and [onPressed] parameters must not be null.
   const BuildNumberPad({
     super.key,
     required this.n,
@@ -193,30 +213,27 @@ class BuildNumberPad extends StatelessWidget {
     this.numberStyle,
   });
 
+  /// The number displayed on the button.
   final int n;
+
+  /// Callback function when the button is pressed.
   final void Function()? onPressed;
+
+  /// Text style for the number displayed on the button.
   final TextStyle? numberStyle;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: onPressed,
-      style: TextButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),
-        ),
-      ),
-      icon: SizedBox(
-        child: Text(
-          n.toString(),
-          style: numberStyle ??
-              const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Colors.black,
-              ),
-          textAlign: TextAlign.center,
-        ),
+      icon: Text(
+        n.toString(),
+        style: numberStyle ??
+            const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+            ),
       ),
     );
   }

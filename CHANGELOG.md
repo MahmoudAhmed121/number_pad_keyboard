@@ -1,3 +1,8 @@
+## 0.0.6
+
+- Added documentation comments for improved code readability and developer usability.
+- Enhanced performance optimizations.
+
 ## 0.0.5
 
 - Added documentation comments for improved code readability and developer usability.
